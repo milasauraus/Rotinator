@@ -1,0 +1,81 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #ffe6f0;
+  overflow: hidden;
+  height: 100vh;
+  font-family: 'Comic Sans MS', cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.message {
+  text-align: center;
+  color: #ff4d88;
+  z-index: 2;
+  position: relative;
+}
+
+.message h1 {
+  font-size: 3em;
+  margin: 0;
+}
+
+.message p {
+  font-size: 1.5em;
+  margin-top: 10px;
+}
+
+.photo {
+  margin-top: 20px;
+  width: 200px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border: 3px solid #ff4d88;
+}
+
+.heart {
+  width: 20px;
+  height: 20px;
+  background: red;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  animation: float 6s infinite ease-in;
+  transform: rotate(-45deg);
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background: red;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -10px;
+  left: 0;
+}
+
+.heart::after {
+  left: -10px;
+  top: 0;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(-45deg);
+    opacity: 1;
+    left: 50%;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(-45deg);
+    opacity: 0;
+    left: calc(50% + 100px * (random() - 0.5));
+  }
+}
